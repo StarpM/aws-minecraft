@@ -1,4 +1,4 @@
-aws_region = "us-east-1"
+aws_region = "eu-west-1"
 
 vpc_id = "vpc-68ad0b12"
 

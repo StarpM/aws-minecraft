@@ -1,5 +1,5 @@
 # aws-minecraft
-
+Based on the work of https://github.com/travis-g here => https://github.com/travis-g/aws-minecraft
 ## Goals
 
 - [x] Full infrastructure-as-code configuration,
@@ -32,3 +32,18 @@
 ## Notes
 
 - If you chose to use spot instances (depending on the desired instance size) it may be cheaper to run the server 24/7: unused Elastic IP addresses cost 1¢/hr.
+
+## Argtes to-dos
+- use official minecraft docker image
+  - build it
+  - populate it with whitelist, ops and other pre-existing config
+  - send it to ecr
+- create ec2 ssh key if desired
+- delete AZ selection
+- create custom secured vpc for the stack
+
+## Bonus stages
+- not a schedules minecraft spot instance
+  - add aws api gateway
+  - add lambda up and down
+  - add step function for start/stop

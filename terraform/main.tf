@@ -6,11 +6,12 @@ terraform {
     }
   }
   backend "s3" {
-    bucket  = "tjg-terraform-state"
-    region  = "us-east-1"
-    encrypt = true
-    acl     = "private"
-    key     = "minecraft-btw-tfstate"
+    bucket         = "argtes-remote-state-bucket"
+    region         = "eu-west-1"
+    encrypt        = true
+    acl            = "private"
+    key            = "minecraft-btw-tfstate"
+    dynamodb_table = "terraform-state-lock-dynamo"
   }
 }
 
@@ -42,7 +43,4 @@ module "minecraft_btw" {
   component_name = var.component_name
   role_name      = var.role_name
 
-  providers = {
-    aws = aws
-  }
 }

@@ -18,7 +18,7 @@ variable "availability_zones" {
   description = "Acceptable availability zones"
 
   default = [
-    "us-east-1a",
+    "eu-west-1a",
   ]
 }
 

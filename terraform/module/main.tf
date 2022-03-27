@@ -70,8 +70,14 @@ resource "aws_launch_configuration" "lc" {
     "sg-0d0507ed4257e1fb9",
   ]
 
-  key_name  = var.key_name
-  user_data = data.template_file.minecraftd_init.rendered
+  key_name = var.key_name
+  user_data = templatefile("${path.module}/templates/user_data.yaml", {
+    region         = var.region
+    eip_alloc      = aws_eip.server_address.id
+    s3_bucket_name = var.s3_bucket_name
+    server_name    = var.server_name
+    ram_alloc      = var.ram_allocation
+  })
 
   lifecycle {
     create_before_destroy = true

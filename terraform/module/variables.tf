@@ -2,7 +2,7 @@
 
 variable "region" {
   description = "AWS region in which to provision"
-  default     = "us-east-1"
+  default     = "eu-west-1"
 }
 
 variable "vpc_id" {
